@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  phonebook-backend:
+    image: phonebook-backend
+    container_name: phonebook-backend
+    build:
+      context: .
+      dockerfile: ./dockerfiles/phonebook-backend/dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - phonebook-db
+  phonebook-db:
+    image: phonebook-db
+    ports: 
+       - 27017:27017
+    container_name: phonebook-db
+    build:
+       context: .
+       dockerfile: ./dockerfiles/phonebook-db/dockerfile
