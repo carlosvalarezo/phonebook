@@ -19,3 +19,10 @@ services:
     build:
        context: .
        dockerfile: ./dockerfiles/phonebook-db/dockerfile
+    volumes:
+        - phonebook-data:/data/db
+        - phonebook-data-config:/data/configdb
+
+volumes:
+  phonebook-data:
+  phonebook-data-config:
